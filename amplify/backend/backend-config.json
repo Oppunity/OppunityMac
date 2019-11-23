@@ -1,0 +1,26 @@
+{
+	"auth": {
+		"oppunitymac43577c3c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"api": {
+		"oppunitymac": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [],
+					"defaultAuthentication": {
+						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+						"userPoolConfig": {
+							"userPoolId": "authoppunitymac43577c3c"
+						}
+					}
+				}
+			}
+		}
+	}
+}

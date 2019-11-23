@@ -1,0 +1,19 @@
+{
+    "oppmac": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-oppunitymac-oppmac-114547-authRole",
+            "UnauthRoleArn": "arn:aws:iam::180010272048:role/amplify-oppunitymac-oppmac-114547-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::180010272048:role/amplify-oppunitymac-oppmac-114547-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-oppunitymac-oppmac-114547-deployment",
+            "UnauthRoleName": "amplify-oppunitymac-oppmac-114547-unauthRole",
+            "StackName": "amplify-oppunitymac-oppmac-114547",
+            "StackId": "arn:aws:cloudformation:us-west-2:180010272048:stack/amplify-oppunitymac-oppmac-114547/d8e58570-0e29-11ea-9794-06bfbb1996ee"
+        },
+        "categories": {
+            "auth": {
+                "oppunitymac43577c3c": {}
+            }
+        }
+    }
+}
