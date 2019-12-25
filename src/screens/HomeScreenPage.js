@@ -3,19 +3,37 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import normalize from 'react-native-normalize';
 
 
-class Homescreen extends Component {
+import { Auth } from 'aws-amplify'
+
+
+class HomeScreenPage extends Component {
 
     static navigationOptions = {
         header: null
     }
 
+    async componentDidMount() {
+      try {
+        const user = await Auth.currentAuthenticatedUser()
+        console.log('user: ', user)
+        console.log('User worked')
+        if (user) {
+          console.log('User worked')
+          this.props.navigation.push('MainFeed')  
+        }
+      } catch (err) {
+        console.log('error: ', err)
+      }
+    }
+
     render()
     {
-        return(
+        return (
             
            
        <View style={styles.BackGround}>
             <Text style={styles.CompanyLogo}> Oppunity </Text>  
+         
             <TouchableOpacity
           style={styles.SubmitButtonLogIn}
           activeOpacity = { .5 }
@@ -24,17 +42,20 @@ class Homescreen extends Component {
             <Text style={styles.TextStyle}> LOGIN </Text>
       </TouchableOpacity> 
   
-
+      
+      
       <TouchableOpacity
       style={styles. SubmitButtonSignUp}
       activeOpacity = { .5 }
-      onPress={() => this.props.navigation.navigate('LogIn') }
+      onPress={() => this.props.navigation.navigate('SignUp') }
       >
-    <Text style={styles.TextStyle}> SignUp </Text>
+    <Text style={styles.TextStyle}> Sign Up </Text>
     </TouchableOpacity> 
 
    <Text style={styles.FounderText}> Created by Devin Devlin, Daniel Dayto, Arrion Archie, William Trevena </Text> 
-    </View>
+   
+        
+   </View>
 
     
 
@@ -58,14 +79,12 @@ const styles = StyleSheet.create(
         paddingTop: normalize(250), 
         textAlign: 'center'
       },
-      FounderText: {
-        flex: 1, 
+      FounderText: { 
         color: 'white', 
         fontSize: normalize(8), 
-        paddingTop: normalize(750), 
-        marginLeft: normalize(50),
+        bottom: normalize(50),
+        left: normalize(50),
         textAlign: 'center',
-        marginBottom: normalize(500),
         position: 'absolute',
         
       },
@@ -73,24 +92,27 @@ const styles = StyleSheet.create(
         height: normalize(100),
         width: normalize(100),
         borderRadius: normalize(50),
-        marginLeft: normalize(50),
-        marginBottom: normalize(-100),
+        left: normalize(50),
+        bottom: normalize(140),
         borderWidth: normalize(2.5),
         paddingTop: normalize(40),
         borderColor: '#fff',
-        backgroundColor:'#0043cf',    
+        backgroundColor:'#0043cf', 
+        position: 'absolute'
+        
     },
 
     SubmitButtonSignUp: {
       height: normalize(100),
       width: normalize(100),
       borderRadius: normalize(50),
-      marginLeft: normalize(225),
-      marginBottom: normalize(100),
+      left: normalize(225),
+      bottom: normalize(140),
       borderWidth: normalize(2.5),
       paddingTop: normalize(40),
       borderColor: '#fff',
-      backgroundColor:'#0043cf',    
+      backgroundColor:'#0043cf',  
+      position: 'absolute'  
   },
 
     TextStyle: {
@@ -100,4 +122,4 @@ const styles = StyleSheet.create(
     }
     );
 
-export default Homescreen;
+export default HomeScreenPage;
