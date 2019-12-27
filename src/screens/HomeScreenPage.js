@@ -37,7 +37,7 @@ class HomeScreenPage extends Component {
             <TouchableOpacity
           style={styles.SubmitButtonLogIn}
           activeOpacity = { .5 }
-          onPress={() => this.props.navigation.navigate('LogIn') }
+          onPress={() => this.props.navigation.navigate('UserProfile') }
           >
             <Text style={styles.TextStyle}> LOGIN </Text>
       </TouchableOpacity> 

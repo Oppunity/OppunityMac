@@ -1,22 +1,43 @@
-
 import React, {Component} from 'react';
-import {View, Image, Text, TouchableOpacity} from 'react-native';
+import {View, Image, Text, TouchableOpacity, FlatList} from 'react-native';
 import {Container, Button} from 'native-base'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class UserProfilePage extends Component { 
-    static navigationOptions = {
-        header: null
-    }
-  
-    constructor(props)
+  static navigationOptions = {
+    header: null
+  } 
+
+  constructor(props)
   {
     super(props)
 
     this.state = {
+
+      FlatListItems: [
+        { id: '1',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '2',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '3',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '4',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '5',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '6',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '7',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '8',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '9',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '10', value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '11', value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
+        { id: '12', value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'}],
       activeIndex:0
     }
   }
+
+  FlatListItemSeparator = () => {
+    return (
+      //Item Separator
+      <View style={{height: 0.5, width: '100%', backgroundColor: '#C8C8C8'}}/>
+    );
+  };
+
   segmentClicked = (index) => {
     this.setState({
       activeIndex: index
@@ -35,11 +56,67 @@ class UserProfilePage extends Component {
 
   renderSectionOne = () => {
     return (
-      <View> 
-        <Text style={{ color: "white"}}> This is for comment </Text>
-      </View>
+      <View style={{flex: 1, marginBottom: 325}}> 
+        <FlatList 
+        data={this.state.FlatListItems}
+        ItemSeparatorComponent={this.FlatListItemSeparator}
+        renderItem={({ item }) => (
+          <View style={{ flex: 1 }}>
+           
+            <View style={{ flex: 1, flexDirection: 'row'}}> 
+            <Image source={{ uri: item.uri }} style={{ width: '8.2%', height: '16%', borderRadius: 100/2, marginLeft: 10, marginTop: 15, borderWidth: 1, borderColor: 'white'}} /> 
+            <Text style={{ marginBottom: 180, fontSize: 15, color: 'white', width: '100%', marginLeft: 20, marginTop: 15,}}> 
+      {item.value}
+          </Text> 
+          <Text style={{ fontSize: 15, color: 'grey', width: '100%', marginLeft: 170, position: 'absolute', marginTop: 15}}> 
+      {item.day}
+          </Text>
+          </View> 
+
+          <View style={{ flex: 1, flexDirection: 'row'}}> 
+          <Text style={{ fontSize: 15, color: 'grey', width: '100%', marginLeft: 65, marginTop: -175, position: 'absolute'}}> 
+      {item.replyingto}
+          </Text>
+          </View>
+          <View style={{ flex: 1, flexDirection: 'row', marginRight: 100 }}> 
+          <Text style={{ fontSize: 15, color: 'white', width: '100%', marginLeft: 65, marginTop: -150, position: 'absolute'}}> 
+      {item.comment}
+          </Text>
+          </View> 
+
+          <View style={{ flex: 1, flexDirection: 'row'}}> 
+          <Text style={{ fontSize: 15, color: 'grey', width: '100%', marginLeft: 65, marginTop: -75, position: 'absolute'}}> 
+      {item.view}
+          </Text>
+      <Text style={{ fontSize: 15, color: 'grey', width: '100%', marginLeft: 325, marginTop: -75, position: 'absolute'}}> 
+      {item.reply}
+          </Text>
+          </View>
+
+          <View style={{ flex: 1, flexDirection: 'row', height: '40%', width: '100%', position: 'absolute'}}> 
+          <Text style={{ fontSize: 15, color: 'grey', width: '100%', marginLeft: 10, marginTop: 175, position: 'absolute' }}> 
+      {item.likenum}
+          </Text>
+        <Image source={{ uri: item.like }} style={{ width: '8.2%', height: '30%', borderRadius: 100/2, marginTop: 170, marginLeft: 48,  position: 'absolute'}} /> 
+          <Text style={{ fontSize: 15, color: 'grey', width: '100%', marginLeft: 150, marginTop: 175, position: 'absolute' }}> 
+      {item.disnum}
+          </Text>
+          <Image source={{ uri: item.dislike }} style={{ width: '8.2%', height: '30%', borderRadius: 100/2, marginTop: 170, marginLeft: 190,  position: 'absolute'}} />
+          <Text style={{ fontSize: 15, color: 'grey', width: '100%', marginLeft: 325, marginTop: 175, position: 'absolute' }}> 
+      {item.disnum}
+          </Text>
+          <Image source={{ uri: item.commentpic }} style={{ width: '6%', height: '30%', borderRadius: 100/2, marginTop: 170, marginLeft: 370,  position: 'absolute'}} />
+         </View>
+           
+        </View> 
+        )}
+        keyExtractor={(item, index) => index.toString()}
+        />
+        
+          </View> 
+
     )
-  
+        
 }
 
 renderSectionTwo = () => {
@@ -209,13 +286,7 @@ renderSectionFourth = () => {
           </View>
           {this.renderSection()}
     </Container>
-
-
   )
-   
-  
-
 }
 }
-
 export default UserProfilePage; 
