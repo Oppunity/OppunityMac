@@ -1,18 +1,54 @@
-import React, {Component} from 'react';
-import {View, Image, Text, TouchableOpacity, FlatList} from 'react-native';
+import React, {Component } from 'react';
+import {View, Image, Text, TouchableOpacity, FlatList, Dimensions} from 'react-native';
 import {Container, Button} from 'native-base'
 import Icon from 'react-native-vector-icons/Ionicons';
+import RatingFeed from '../FLcomponents/RatingFeed.js';
+import EventProfileFeed from '../FLcomponents/EventProfileFeed';
+
+
+
+
+var {width, height} = Dimensions.get('window')
+
+const mediaimages = [
+  {key: "https://imagesvc.timeincapp.com/v3/fan/image?url=https://sircharlesincharge.com/wp-content/uploads/getty-images/2019/08/1155488502.jpeg&c=sc&w=3200&h=2161"},
+  {key: "https://imagesvc.timeincapp.com/v3/fan/image?url=http://hoopshabit.com/wp-content/uploads/getty-images/2018/08/1177700375.jpeg&c=sc&w=3200&h=2133"},
+  {key: "https://ca-times.brightspotcdn.com/dims4/default/005e42c/2147483647/strip/true/crop/1881x1254+167+0/resize/2400x1600!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fc4%2F4d%2F6f2af18facb11af03780ba411f27%2Fla-xpm-photo-2013-dec-07-la-sp-lakers-kobe-20131208"},
+  {key: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwZtmoLkn47r5W0CkDozqYmczNXdE3EPrQIMSglzMfwIh5MJQwsQ&s"},
+  {key: "https://www.usnews.com/dims4/USNEWS/505905e/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fcom-usnews-beam-media.s3.amazonaws.com%2Fb9%2F2fc427b3844714ea7625b953afa909%2Fmedia%3A046dd960b1284430b40e7802080e3f76Lakers_Pacers_Basketball_09540.jpg"},
+  {key: "https://imagesvc.timeincapp.com/v3/fan/image?url=https%3A%2F%2Forlandomagicdaily.com%2Fwp-content%2Fuploads%2Fgetty-images%2F2017%2F07%2F1188070037.jpeg&c=sc&w=736&h=485"},
+  {key: "https://imagesvc.timeincapp.com/v3/fan/image?url=https://lakeshowlife.com/wp-content/uploads/getty-images/2018/08/1194978120.jpeg&c=sc&w=3200&h=2133"}
+]
+
+
+
 
 class UserProfilePage extends Component { 
+
+    
   static navigationOptions = {
     header: null
-  } 
+}
 
   constructor(props)
   {
     super(props)
 
     this.state = {
+      numColumnss:2, 
+
+     
+      CheckInItems: [
+        {id: '1', orgname: 'NSBE @NSBE', eventname: 'Study Jam', day: '- 45minutes ago', orgpicture: 'https://facebook.github.io/react/logo-og.png', arrow: 'https://etc.usf.edu/clipart/70300/70314/70314_258_c-2b_b_md.gif'},
+        {id: '2', orgname: 'NSBE @NSBE', eventname: 'Tail Gate', day: '- 45minutes ago', orgpicture: 'https://facebook.github.io/react/logo-og.png', arrow: 'https://etc.usf.edu/clipart/70300/70314/70314_258_c-2b_b_md.gif'},
+        {id: '3', orgname: 'NSBE @NSBE', eventname: 'Alumni Panel', day: '- 45minutes ago', orgpicture: 'https://facebook.github.io/react/logo-og.png', arrow: 'https://etc.usf.edu/clipart/70300/70314/70314_258_c-2b_b_md.gif'},
+        {id: '4', orgname: 'NSBE @NSBE', eventname: 'Group Panel', day: '- 45minutes ago', orgpicture: 'https://facebook.github.io/react/logo-og.png', arrow: 'https://etc.usf.edu/clipart/70300/70314/70314_258_c-2b_b_md.gif'},
+        {id: '5', orgname: 'NSBE @NSBE', eventname: 'Dance', day: '- 45minutes ago', orgpicture: 'https://facebook.github.io/react/logo-og.png', arrow: 'https://etc.usf.edu/clipart/70300/70314/70314_258_c-2b_b_md.gif'},
+        {id: '6', orgname: 'NSBE @NSBE', eventname: 'Study Jam', day: '- 45minutes ago', orgpicture: 'https://facebook.github.io/react/logo-og.png', arrow: 'https://etc.usf.edu/clipart/70300/70314/70314_258_c-2b_b_md.gif'},
+        {id: '7', orgname: 'NSBE @NSBE', eventname: 'Study Jam', day: '- 45minutes ago', orgpicture: 'https://facebook.github.io/react/logo-og.png', arrow: 'https://etc.usf.edu/clipart/70300/70314/70314_258_c-2b_b_md.gif'},
+        {id: '8', orgname: 'NSBE @NSBE', eventname: 'Study Jam', day: '- 45minutes ago', orgpicture: 'https://facebook.github.io/react/logo-og.png', arrow: 'https://etc.usf.edu/clipart/70300/70314/70314_258_c-2b_b_md.gif'},
+
+      ],
 
       FlatListItems: [
         { id: '1',  value: 'NSBE @NSBE', day: '- 45 minutes ago', uri: 'https://facebook.github.io/react/logo-og.png', like: 'https://images.8tracks.com/cover/i/010/026/698/flat_800x800_075_t.u2-9531.jpg?rect=0,0,800,800&q=98&fm=jpg&fit=max', likenum: '999+', dislike: 'http://ih2.redbubble.net/image.34476280.0296/fc,220x200,black.u1.jpg', disnum: '999+', reply: 'reply', view: 'view all comments', replyingto: '...replying to @BSU Post', comment: 'This event was great. Having apple, google, and amazon at the event was amazing. Being able to increase my network was the best part of the experience. #Network=Networth',commentpic: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScYBbhjPvFAYmC2dwzgqNZ7I8jzs_pmMSlcFQHOyCgWebW7UeuUw&s'},
@@ -44,12 +80,13 @@ class UserProfilePage extends Component {
     })
   }
 
+
   renderSectionZero = () => {
       return (
-        <View> 
-<Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
-       style={{width: '400%', height: '50%', borderRadius: 100/2, marginTop: 40, marginLeft: 75}} />
-        </View>
+        <View style = {{flex:1, width:100 + "%", height: 100 + "%", backgroundColor:'black', paddingTop: 30, paddingBottom: 330 }}>
+             
+        <EventProfileFeed/>
+   </View>
       )
     
   }
@@ -121,28 +158,61 @@ class UserProfilePage extends Component {
 
 renderSectionTwo = () => {
   return (
-    <View> 
- <Text style={{ color: "white"}}> This is for Rating</Text>
+    <View style = {{flex:1, width:100 + "%", height: 100 + "%", backgroundColor:'black', paddingBottom: 330}}>
+         <RatingFeed/>
     </View>
   )
 
 }
 
 renderSectionThree = () => {
-  return (
-    <View> 
-<Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
-   style={{width: '400%', height: '50%', borderRadius: 100/2, marginTop: 40, marginLeft: 75}} />
-    </View>
-  )
-
+    
+    return(
+  <View style={{flex: 1, marginBottom: 325, marginVertical: 20}}> 
+  <FlatList 
+  data={mediaimages}
+  numColumns = {this.state.numColumnss}
+  key={this.state.numColumnss}
+  renderItem={ ({ item }) => (
+      <TouchableOpacity style={[ {width:(width) / 2}, {height: (width) / 2}, {marginBottom: 3},
+        item % 2 !==0 ? {paddingLeft:3} : {paddingLeft:0}
+      ]}>
+      <Image source={{uri: item.key}} style={{flex: 1,  width: undefined, height: undefined}} />
+      </TouchableOpacity>
+)
+} 
+keyExtractor={(items, index, numColumns) => index.toString()} />
+</View>
+    )
 }
 
 renderSectionFourth = () => {
   return (
-    <View> 
-<Text style={{ color: "white"}}> This is for Check-In Events</Text> 
-    </View>
+    <View style={{flex: 1, marginBottom: 325}}> 
+    <FlatList 
+    data={this.state.CheckInItems}
+    ItemSeparatorComponent={this.FlatListItemSeparator}
+    renderItem={({ item }) => (
+      <View style={{ flex: 1, height: 100}}>
+           
+            <View style={{ flex: 1, flexDirection: 'row'}}> 
+            <Image source={{ uri: item.orgpicture }} style={{ width: '12%', height: '100%', borderRadius: 100/2, marginLeft: 10, marginTop: 25, borderWidth: 1, borderColor: 'white'}} /> 
+            <Text style={{ marginBottom: 10, fontSize: 15, color: 'grey', width: '100%', marginLeft: 10, marginTop: 15,}}> 
+      {item.orgname}
+          </Text> 
+          </View>
+          <View style={{flex: 1, flexDirection: 'row'}}>
+          <Text style={{ fontSize: 30, color: 'white', width: '100%', marginLeft: 70, marginTop: -10}}> 
+            {item.eventname}
+            </Text>
+            <Image source={{ uri: item.arrow }} style={{ width: '18%', height: '100%', borderRadius: 100/2, marginLeft: 335, marginTop: -20, borderWidth: 1, borderColor: 'white', position: 'absolute'}} />
+            </View>
+           
+        </View> 
+        )}
+        keyExtractor={(item, index, numColumns) => index.toString()}
+        />
+          </View> 
   )
 
 }
@@ -289,4 +359,5 @@ renderSectionFourth = () => {
   )
 }
 }
+
 export default UserProfilePage; 
