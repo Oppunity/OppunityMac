@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import normalize from 'react-native-normalize';
-
-
 import { Auth } from 'aws-amplify'
 
-
 class HomeScreenPage extends Component {
-
     static navigationOptions = {
         header: null
     }
-
     async componentDidMount() {
       try {
         const user = await Auth.currentAuthenticatedUser()
@@ -37,7 +32,7 @@ class HomeScreenPage extends Component {
             <TouchableOpacity
           style={styles.SubmitButtonLogIn}
           activeOpacity = { .5 }
-          onPress={() => this.props.navigation.navigate('UserProfile') }
+          onPress={() => this.props.navigation.navigate('LogIn') }
           >
             <Text style={styles.TextStyle}> LOGIN </Text>
       </TouchableOpacity> 

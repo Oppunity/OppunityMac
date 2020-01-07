@@ -1,162 +1,81 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = `mutation CreateBlog($input: CreateBlogInput!) {
-  createBlog(input: $input) {
+export const createCity = `mutation CreateCity($input: CreateCityInput!) {
+  createCity(input: $input) {
     id
     name
-    posts {
+    country
+    locations {
       items {
         id
-        title
+        name
+        description
+        address
       }
       nextToken
     }
   }
 }
 `;
-export const updateBlog = `mutation UpdateBlog($input: UpdateBlogInput!) {
-  updateBlog(input: $input) {
+export const updateCity = `mutation UpdateCity($input: UpdateCityInput!) {
+  updateCity(input: $input) {
     id
     name
-    posts {
+    country
+    locations {
       items {
         id
-        title
+        name
+        description
+        address
       }
       nextToken
     }
   }
 }
 `;
-export const deleteBlog = `mutation DeleteBlog($input: DeleteBlogInput!) {
-  deleteBlog(input: $input) {
+export const deleteCity = `mutation DeleteCity($input: DeleteCityInput!) {
+  deleteCity(input: $input) {
     id
     name
-    posts {
+    country
+    locations {
       items {
-        id
-        title
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const createPost = `mutation CreatePost($input: CreatePostInput!) {
-  createPost(input: $input) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const updatePost = `mutation UpdatePost($input: UpdatePostInput!) {
-  updatePost(input: $input) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const deletePost = `mutation DeletePost($input: DeletePostInput!) {
-  deletePost(input: $input) {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const createComment = `mutation CreateComment($input: CreateCommentInput!) {
-  createComment(input: $input) {
-    id
-    content
-    post {
-      id
-      title
-      blog {
         id
         name
+        description
+        address
       }
-      comments {
-        nextToken
-      }
+      nextToken
     }
   }
 }
 `;
-export const updateComment = `mutation UpdateComment($input: UpdateCommentInput!) {
-  updateComment(input: $input) {
+export const createLocation = `mutation CreateLocation($input: CreateLocationInput!) {
+  createLocation(input: $input) {
     id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+    name
+    description
+    address
   }
 }
 `;
-export const deleteComment = `mutation DeleteComment($input: DeleteCommentInput!) {
-  deleteComment(input: $input) {
+export const updateLocation = `mutation UpdateLocation($input: UpdateLocationInput!) {
+  updateLocation(input: $input) {
     id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+    name
+    description
+    address
+  }
+}
+`;
+export const deleteLocation = `mutation DeleteLocation($input: DeleteLocationInput!) {
+  deleteLocation(input: $input) {
+    id
+    name
+    description
+    address
   }
 }
 `;

@@ -1,7 +1,6 @@
 import React, { Fragment, Component } from 'react'
 import {View, Button, TextInput, StyleSheet, Image, TouchableOpacity, Text, KeyboardAvoidingView} from 'react-native'
 import normalize from 'react-native-normalize'
-import Modal from 'react-native-modal'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -39,13 +38,18 @@ class SignUpPage extends Component {
 
     
     confirmSignUp = async () => {
-      const { username, authenticationCode } = this.state
+      const { username, password, authenticationCode } = this.state
       try {
         await Auth.confirmSignUp( username, authenticationCode)
-        console.log('successully signed up!')
+        console.log('successully signed up!') 
         alert('User signed up successfully!')
-        this.props.navigation.push('Interest')
+
+        const user = await Auth.signIn(username, password)
+        console.log('user successfully signed in!', user)
+        alert('user successfully signed in!');
+
         this.setState({ ...initialState })
+        this.props.navigation.push('AccountSelect')
       } catch (err) {
         console.log('error confirming signing up: ', err)
       }
@@ -118,8 +122,7 @@ class SignUpPage extends Component {
                
             <Text style = {{ fontSize: 16,fontWeight: '500', color: '#ffffff', textAlign: 'center', marginTop: -1}}> Sign Up</Text>
        </TouchableOpacity>
-      
-               
+    
               </Fragment>
             )
           }
@@ -142,43 +145,6 @@ class SignUpPage extends Component {
           }
         </View>
 
-
-
-
-
-<Modal
-isVisible = {this.state.messageModalVisible }
-onSwipeComplete = {() => this.toggleMessageModal(false)}
-swipeDirection = "right"
-onBackDropPress = {() => this.toggleMessageModal(false)}
-animationIn = "fadeIn"
-animationOut = "fadeOut"
-style = {styles.modalMessages}
->
-
-   <View style = {styles.modalMessageContent}>
-       
-       <TouchableOpacity 
-       style = {styles.button}
-       onPress ={ () => this.organizationNavigateAndExit() }>
-
-               <Text style = {styles.buttonText} > Register as Organization</Text>
-
-       </TouchableOpacity>
-
-
-
-       <TouchableOpacity 
-       style = {styles.button}
-        onPress ={ () => this.studentNavigateAndExit() }>
-
-               <Text style = {styles.buttonText}> Register as Student</Text>
-
-       </TouchableOpacity>
-
-   </View>
-
-</Modal>
 </KeyboardAvoidingView>
       )
     }

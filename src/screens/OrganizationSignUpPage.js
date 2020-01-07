@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, TouchableOpacity, Text} from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import normalize from 'react-native-normalize';
 
 
-
-class InterestPage extends Component {
+class OrganizationSignUpPage extends Component {
  render()  
  { 
     return (
-        <View style={{flex: 1, backgroundColor: 'red'}}>
-
-    <TouchableOpacity
+        <View style={{flex: 1, backgroundColor: 'black'}}> 
+            <TouchableOpacity
       style={styles.SubmitButtonSignUp}
       activeOpacity = { .5 }
-      onPress={() => this.props.navigation.navigate('OrgRecommendation') }
       >
-    <Text style={styles.TextStyle}> InterestPage </Text>
+    <Text style={styles.TextStyle}> OrgProfilePage </Text>
     </TouchableOpacity> 
-
 
 
         </View>
@@ -28,6 +24,7 @@ class InterestPage extends Component {
 
  }
 }
+
 
 const styles = StyleSheet.create( 
     {
@@ -51,4 +48,5 @@ const styles = StyleSheet.create(
 )
 
 
-export default InterestPage; 
+
+export default OrganizationSignUpPage; 

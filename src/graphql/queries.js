@@ -1,30 +1,34 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = `query GetBlog($id: ID!) {
-  getBlog(id: $id) {
+export const getCity = `query GetCity($id: ID!) {
+  getCity(id: $id) {
     id
     name
-    posts {
+    country
+    locations {
       items {
         id
-        title
+        name
+        description
+        address
       }
       nextToken
     }
   }
 }
 `;
-export const listBlogs = `query ListBlogs(
-  $filter: ModelBlogFilterInput
+export const listCitys = `query ListCitys(
+  $filter: ModelCityFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listCitys(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       name
-      posts {
+      country
+      locations {
         nextToken
       }
     }
@@ -32,79 +36,26 @@ export const listBlogs = `query ListBlogs(
   }
 }
 `;
-export const getPost = `query GetPost($id: ID!) {
-  getPost(id: $id) {
+export const getLocation = `query GetLocation($id: ID!) {
+  getLocation(id: $id) {
     id
-    title
-    blog {
+    name
+    description
+    address
+  }
+}
+`;
+export const listLocations = `query ListLocations(
+  $filter: ModelLocationFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listLocations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
       id
       name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const listPosts = `query ListPosts(
-  $filter: ModelPostFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
-    nextToken
-  }
-}
-`;
-export const getComment = `query GetComment($id: ID!) {
-  getComment(id: $id) {
-    id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
-  }
-}
-`;
-export const listComments = `query ListComments(
-  $filter: ModelCommentFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      content
-      post {
-        id
-        title
-      }
+      description
+      address
     }
     nextToken
   }

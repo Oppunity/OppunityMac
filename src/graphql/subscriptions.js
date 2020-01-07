@@ -1,162 +1,81 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBlog = `subscription OnCreateBlog {
-  onCreateBlog {
+export const onCreateCity = `subscription OnCreateCity {
+  onCreateCity {
     id
     name
-    posts {
+    country
+    locations {
       items {
         id
-        title
+        name
+        description
+        address
       }
       nextToken
     }
   }
 }
 `;
-export const onUpdateBlog = `subscription OnUpdateBlog {
-  onUpdateBlog {
+export const onUpdateCity = `subscription OnUpdateCity {
+  onUpdateCity {
     id
     name
-    posts {
+    country
+    locations {
       items {
         id
-        title
+        name
+        description
+        address
       }
       nextToken
     }
   }
 }
 `;
-export const onDeleteBlog = `subscription OnDeleteBlog {
-  onDeleteBlog {
+export const onDeleteCity = `subscription OnDeleteCity {
+  onDeleteCity {
     id
     name
-    posts {
+    country
+    locations {
       items {
-        id
-        title
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onCreatePost = `subscription OnCreatePost {
-  onCreatePost {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onUpdatePost = `subscription OnUpdatePost {
-  onUpdatePost {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onDeletePost = `subscription OnDeletePost {
-  onDeletePost {
-    id
-    title
-    blog {
-      id
-      name
-      posts {
-        nextToken
-      }
-    }
-    comments {
-      items {
-        id
-        content
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onCreateComment = `subscription OnCreateComment {
-  onCreateComment {
-    id
-    content
-    post {
-      id
-      title
-      blog {
         id
         name
+        description
+        address
       }
-      comments {
-        nextToken
-      }
+      nextToken
     }
   }
 }
 `;
-export const onUpdateComment = `subscription OnUpdateComment {
-  onUpdateComment {
+export const onCreateLocation = `subscription OnCreateLocation {
+  onCreateLocation {
     id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+    name
+    description
+    address
   }
 }
 `;
-export const onDeleteComment = `subscription OnDeleteComment {
-  onDeleteComment {
+export const onUpdateLocation = `subscription OnUpdateLocation {
+  onUpdateLocation {
     id
-    content
-    post {
-      id
-      title
-      blog {
-        id
-        name
-      }
-      comments {
-        nextToken
-      }
-    }
+    name
+    description
+    address
+  }
+}
+`;
+export const onDeleteLocation = `subscription OnDeleteLocation {
+  onDeleteLocation {
+    id
+    name
+    description
+    address
   }
 }
 `;

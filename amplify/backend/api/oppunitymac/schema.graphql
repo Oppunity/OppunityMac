@@ -1,16 +1,14 @@
-type Blog @model {
+type City @model {
   id: ID!
   name: String!
-  posts: [Post] @connection(name: "BlogPosts")
+  country: String!
+  locations: [Location] @connection
 }
-type Post @model {
+
+type Location @model {
   id: ID!
-  title: String!
-  blog: Blog @connection(name: "BlogPosts")
-  comments: [Comment] @connection(name: "PostComments")
+  name: String!
+  description: String!
+  address: String
 }
-type Comment @model {
-  id: ID!
-  content: String
-  post: Post @connection(name: "PostComments")
-}
+

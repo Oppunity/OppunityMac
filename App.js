@@ -6,18 +6,22 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import HomeScreenPage from './src/screens/HomeScreenPage';
 import EventClickPage from './src/screens/EventClickPage';
-import InterestPage from './src/screens/InterestPage';
+import IndividualInterestPage from './src/screens/IndividualInterestPage';
 import LogInPage from './src/screens/LogInPage';
 import MainFeedPage from './src/screens/MainFeedPage';
 import MediaClickPage from './src/screens/MediaClickPage';
 import OrgProfilePage from './src/screens/OrgProfilePage';
 import OrgRecommendationPage from './src/screens/OrgRecommendationPage';
+import OrganizationSignUpPage from './src/screens/OrganizationSignUpPage';
 import PopnSearchPage from './src/screens/PopnSearchPage';
 import SettingPage from './src/screens/SettingPage';
 import SignUpPage from './src/screens/SignUpPage';
 import UploadPage from './src/screens/UploadPage';
 import UserProfilePage from './src/screens/UserProfilePage';
-import ActionButton from './src/screens/ActionButton'
+import ActionButton from './src/screens/ActionButton';
+import AccountSelectPage  from './src/screens/AccountSelectPage';
+import IndividualSignUpPage from './src/screens/IndividualSignUpPage';
+
 
  
 
@@ -25,7 +29,7 @@ import ActionButton from './src/screens/ActionButton'
 const RootStack = createStackNavigator ( { 
   HomeScreen: HomeScreenPage,
   EventClick: EventClickPage,
-  Interest: InterestPage,
+  IndividualInterest: IndividualInterestPage,
   LogIn: LogInPage,
   MainFeed: MainFeedPage,
   MediaClick: MediaClickPage,
@@ -36,7 +40,10 @@ const RootStack = createStackNavigator ( {
   SignUp: SignUpPage,
   Upload: UploadPage,
   UserProfile: UserProfilePage,
-  ActionButton: ActionButton
+  ActionButton: ActionButton,
+  AccountSelect: AccountSelectPage,
+  OrganizationSignUp: OrganizationSignUpPage,
+  IndividualSignUp: IndividualSignUpPage
 },
 {
   initialRoute: 'HomeScreen',
