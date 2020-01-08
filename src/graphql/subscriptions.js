@@ -1,81 +1,33 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateCity = `subscription OnCreateCity {
-  onCreateCity {
+export const onCreateRestaurant = `subscription OnCreateRestaurant {
+  onCreateRestaurant {
     id
-    name
-    country
-    locations {
-      items {
-        id
-        name
-        description
-        address
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onUpdateCity = `subscription OnUpdateCity {
-  onUpdateCity {
-    id
-    name
-    country
-    locations {
-      items {
-        id
-        name
-        description
-        address
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onDeleteCity = `subscription OnDeleteCity {
-  onDeleteCity {
-    id
-    name
-    country
-    locations {
-      items {
-        id
-        name
-        description
-        address
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const onCreateLocation = `subscription OnCreateLocation {
-  onCreateLocation {
-    id
+    clientId
     name
     description
-    address
+    city
   }
 }
 `;
-export const onUpdateLocation = `subscription OnUpdateLocation {
-  onUpdateLocation {
+export const onUpdateRestaurant = `subscription OnUpdateRestaurant {
+  onUpdateRestaurant {
     id
+    clientId
     name
     description
-    address
+    city
   }
 }
 `;
-export const onDeleteLocation = `subscription OnDeleteLocation {
-  onDeleteLocation {
+export const onDeleteRestaurant = `subscription OnDeleteRestaurant {
+  onDeleteRestaurant {
     id
+    clientId
     name
     description
-    address
+    city
   }
 }
 `;

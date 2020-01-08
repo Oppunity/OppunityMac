@@ -1,61 +1,28 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getCity = `query GetCity($id: ID!) {
-  getCity(id: $id) {
+export const getRestaurant = `query GetRestaurant($id: ID!) {
+  getRestaurant(id: $id) {
     id
-    name
-    country
-    locations {
-      items {
-        id
-        name
-        description
-        address
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const listCitys = `query ListCitys(
-  $filter: ModelCityFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listCitys(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      country
-      locations {
-        nextToken
-      }
-    }
-    nextToken
-  }
-}
-`;
-export const getLocation = `query GetLocation($id: ID!) {
-  getLocation(id: $id) {
-    id
+    clientId
     name
     description
-    address
+    city
   }
 }
 `;
-export const listLocations = `query ListLocations(
-  $filter: ModelLocationFilterInput
+export const listRestaurants = `query ListRestaurants(
+  $filter: ModelRestaurantFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listLocations(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listRestaurants(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      clientId
       name
       description
-      address
+      city
     }
     nextToken
   }

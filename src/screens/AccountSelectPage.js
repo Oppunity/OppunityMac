@@ -24,12 +24,7 @@ class AccountSelectPage extends Component {
       >
     <Text style={styles.TextStyle}> Individual </Text>
     </TouchableOpacity> 
-
-
-
         </View>
-
-
     )
 
 

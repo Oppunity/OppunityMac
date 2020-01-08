@@ -1,81 +1,33 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createCity = `mutation CreateCity($input: CreateCityInput!) {
-  createCity(input: $input) {
+export const createRestaurant = `mutation CreateRestaurant($input: CreateRestaurantInput!) {
+  createRestaurant(input: $input) {
     id
-    name
-    country
-    locations {
-      items {
-        id
-        name
-        description
-        address
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const updateCity = `mutation UpdateCity($input: UpdateCityInput!) {
-  updateCity(input: $input) {
-    id
-    name
-    country
-    locations {
-      items {
-        id
-        name
-        description
-        address
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const deleteCity = `mutation DeleteCity($input: DeleteCityInput!) {
-  deleteCity(input: $input) {
-    id
-    name
-    country
-    locations {
-      items {
-        id
-        name
-        description
-        address
-      }
-      nextToken
-    }
-  }
-}
-`;
-export const createLocation = `mutation CreateLocation($input: CreateLocationInput!) {
-  createLocation(input: $input) {
-    id
+    clientId
     name
     description
-    address
+    city
   }
 }
 `;
-export const updateLocation = `mutation UpdateLocation($input: UpdateLocationInput!) {
-  updateLocation(input: $input) {
+export const updateRestaurant = `mutation UpdateRestaurant($input: UpdateRestaurantInput!) {
+  updateRestaurant(input: $input) {
     id
+    clientId
     name
     description
-    address
+    city
   }
 }
 `;
-export const deleteLocation = `mutation DeleteLocation($input: DeleteLocationInput!) {
-  deleteLocation(input: $input) {
+export const deleteRestaurant = `mutation DeleteRestaurant($input: DeleteRestaurantInput!) {
+  deleteRestaurant(input: $input) {
     id
+    clientId
     name
     description
-    address
+    city
   }
 }
 `;

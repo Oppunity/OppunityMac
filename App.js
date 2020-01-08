@@ -23,8 +23,6 @@ import AccountSelectPage  from './src/screens/AccountSelectPage';
 import IndividualSignUpPage from './src/screens/IndividualSignUpPage';
 
 
- 
-
 
 const RootStack = createStackNavigator ( { 
   HomeScreen: HomeScreenPage,

@@ -1,14 +1,7 @@
-type City @model {
-  id: ID!
-  name: String!
-  country: String!
-  locations: [Location] @connection
+type Restaurant @model {
+  id: ID
+  clientId: String
+  name: String
+  description: String
+  city: String
 }
-
-type Location @model {
-  id: ID!
-  name: String!
-  description: String!
-  address: String
-}
-
