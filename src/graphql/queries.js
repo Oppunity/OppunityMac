@@ -1,28 +1,28 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getRestaurant = `query GetRestaurant($id: ID!) {
-  getRestaurant(id: $id) {
+export const getUserInfo = `query GetUserInfo($id: ID!) {
+  getUserInfo(id: $id) {
     id
     clientId
-    name
-    description
-    city
+    firstname
+    lastname
+    age
   }
 }
 `;
-export const listRestaurants = `query ListRestaurants(
-  $filter: ModelRestaurantFilterInput
+export const listUserInfos = `query ListUserInfos(
+  $filter: ModelUserInfoFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listRestaurants(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listUserInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       clientId
-      name
-      description
-      city
+      firstname
+      lastname
+      age
     }
     nextToken
   }

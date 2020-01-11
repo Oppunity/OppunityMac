@@ -1,33 +1,33 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createRestaurant = `mutation CreateRestaurant($input: CreateRestaurantInput!) {
-  createRestaurant(input: $input) {
+export const createUserInfo = `mutation CreateUserInfo($input: CreateUserInfoInput!) {
+  createUserInfo(input: $input) {
     id
     clientId
-    name
-    description
-    city
+    firstname
+    lastname
+    age
   }
 }
 `;
-export const updateRestaurant = `mutation UpdateRestaurant($input: UpdateRestaurantInput!) {
-  updateRestaurant(input: $input) {
+export const updateUserInfo = `mutation UpdateUserInfo($input: UpdateUserInfoInput!) {
+  updateUserInfo(input: $input) {
     id
     clientId
-    name
-    description
-    city
+    firstname
+    lastname
+    age
   }
 }
 `;
-export const deleteRestaurant = `mutation DeleteRestaurant($input: DeleteRestaurantInput!) {
-  deleteRestaurant(input: $input) {
+export const deleteUserInfo = `mutation DeleteUserInfo($input: DeleteUserInfoInput!) {
+  deleteUserInfo(input: $input) {
     id
     clientId
-    name
-    description
-    city
+    firstname
+    lastname
+    age
   }
 }
 `;

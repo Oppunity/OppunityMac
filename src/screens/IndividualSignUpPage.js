@@ -5,9 +5,9 @@ import { SafeAreaView, View, StyleSheet, Text, TextInput, Button } from 'react-n
 import { API, graphqlOperation } from 'aws-amplify'
 
 // import the GraphQL query
-import { listRestaurants } from '../graphql/queries'
+ import { listUserInfos } from '../graphql/queries'
 // import the GraphQL mutation
-import { createRestaurant } from '../graphql/mutations'
+import { createUserInfo } from '../graphql/mutations'
 
 // create client ID
 import uuid from 'uuid/v4'
@@ -16,41 +16,43 @@ const CLIENTID = uuid()
 class IndividualSignUpPage extends Component {
  // add additional state to hold form state as well as restaurant data returned from the API
  state = {
-  name: '', description: '', city: '', restaurants: []
+  firstname: '', lastname: '', age: '', UserInfos: []
 }
+
 // execute the query in componentDidMount
 async componentDidMount() {
   try {
-    const restaurantData = await API.graphql(graphqlOperation(listRestaurants))
-    console.log('restaurantData:', restaurantData)
+    const userInfoData = await API.graphql(graphqlOperation(listUserInfos))
+    console.log('restaurantData:', userInfoData)
     this.setState({
-      restaurants: restaurantData.data.listRestaurants.items
+      userInfos: userInfoData.data.listUserInfos.items
     })
   } catch (err) {
-    console.log('error fetching restaurants...', err)
+    console.log('error fetching username...', err)
   }
 }
+
 // this method calls the API and creates the mutation
-createRestaurant = async() => {
-  const { name, description, city  } = this.state
+createUserInfo = async() => {
+  const { firstname, lastname, age } = this.state
   // store the restaurant data in a variable
-  const restaurant = {
-    name, description, city, clientId: CLIENTID
+  const userInfo = {
+    firstname, lastname, age, clientId: CLIENTID
   }
   // perform an optimistic response to update the UI immediately
-  const restaurants = [...this.state.restaurants, restaurant]
+  const UserInfos = [...this.state.UserInfos, userInfo]
   this.setState({
-    restaurants,
-    name: '', description: '', city: ''
+    UserInfos,
+    firstname: '', lastname: '', age: '',
     })
   try {
     // make the API call
-    await API.graphql(graphqlOperation(createRestaurant, {
-      input: restaurant
+    await API.graphql(graphqlOperation(createUserInfo, {
+      input: userInfo
     }))
     console.log('item created!')
   } catch (err) {
-    console.log('error creating restaurant...', err)
+    console.log('error creating user...', err)
   }
 }
 // change form state then user types into input
@@ -62,29 +64,35 @@ render() {
     <SafeAreaView style={styles.container}>
       <TextInput
         style={{ height: 50, margin: 5, backgroundColor: "#ddd" }}
-        onChangeText={v => this.onChange('name', v)}
-        value={this.state.name} placeholder='name'
+        onChangeText={v => this.onChange('firstname', v)}
+        value={this.state.firstname} placeholder='firstname'
       />
       <TextInput
         style={{ height: 50, margin: 5, backgroundColor: "#ddd" }}
-        onChangeText={v => this.onChange('description', v)}
-        value={this.state.description} placeholder='description'
+        onChangeText={v => this.onChange('lastname', v)}
+        value={this.state.lastname} placeholder='lastname'
       />
+
       <TextInput
         style={{ height: 50, margin: 5, backgroundColor: "#ddd" }}
-        onChangeText={v => this.onChange('city', v)}
-        value={this.state.city} placeholder='city'
+        onChangeText={v => this.onChange('age', v)}
+        value={this.state.age} placeholder='age'
       />
-      <Button onPress={this.createRestaurant} title='Create Restaurant' />
+
+      <Button onPress={this.createUserInfo} title='Create Account' />
+    
+    
+    
       {
-        this.state.restaurants.map((restaurant, index) => (
+        this.state.UserInfos.map((userInfo, index) => (
           <View key={index} style={styles.item}>
-            <Text style={styles.name}>{restaurant.name}</Text>
-            <Text style={styles.description}>{restaurant.description}</Text>
-            <Text style={styles.city}>{restaurant.city}</Text>
+            <Text style={styles.name}>{userInfo.firstname}</Text>
+            <Text style={styles.description}>{userInfo.lastname}</Text>
+            <Text style={styles.city}>{userInfo.age}</Text>
           </View>
         ))
       }
+  
     </SafeAreaView>
   )
 }

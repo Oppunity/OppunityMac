@@ -1,7 +1,7 @@
-type Restaurant @model {
+type UserInfo @model {
   id: ID
   clientId: String
-  name: String
-  description: String
-  city: String
+  firstname: String
+  lastname: String
+  age: String
 }
