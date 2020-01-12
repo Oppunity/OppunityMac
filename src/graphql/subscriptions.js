@@ -3,31 +3,46 @@
 
 export const onCreateUserInfo = `subscription OnCreateUserInfo {
   onCreateUserInfo {
-    id
     clientId
     firstname
     lastname
-    age
+    InCollege
+    collegename
+    major
+    RaceText
+    GenderText
+    date
+    country
   }
 }
 `;
 export const onUpdateUserInfo = `subscription OnUpdateUserInfo {
   onUpdateUserInfo {
-    id
     clientId
     firstname
     lastname
-    age
+    InCollege
+    collegename
+    major
+    RaceText
+    GenderText
+    date
+    country
   }
 }
 `;
 export const onDeleteUserInfo = `subscription OnDeleteUserInfo {
   onDeleteUserInfo {
-    id
     clientId
     firstname
     lastname
-    age
+    InCollege
+    collegename
+    major
+    RaceText
+    GenderText
+    date
+    country
   }
 }
 `;

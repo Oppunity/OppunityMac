@@ -14,7 +14,7 @@ class HomeScreenPage extends Component {
         console.log('User worked')
         if (user) {
           console.log('User worked')
-          this.props.navigation.push('MainFeed')  
+          this.props.navigation.push('IndividualSignUp')  
         }
       } catch (err) {
         console.log('error: ', err)

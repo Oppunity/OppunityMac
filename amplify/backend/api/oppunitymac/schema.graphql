@@ -1,7 +1,12 @@
 type UserInfo @model {
-  id: ID
   clientId: String
   firstname: String
   lastname: String
-  age: String
+  InCollege: String
+  collegename: String
+  major: String
+  RaceText: String
+  GenderText: String
+  date: String
+  country: String
 }

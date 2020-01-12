@@ -3,11 +3,16 @@
 
 export const getUserInfo = `query GetUserInfo($id: ID!) {
   getUserInfo(id: $id) {
-    id
     clientId
     firstname
     lastname
-    age
+    InCollege
+    collegename
+    major
+    RaceText
+    GenderText
+    date
+    country
   }
 }
 `;
@@ -18,11 +23,16 @@ export const listUserInfos = `query ListUserInfos(
 ) {
   listUserInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
-      id
       clientId
       firstname
       lastname
-      age
+      InCollege
+      collegename
+      major
+      RaceText
+      GenderText
+      date
+      country
     }
     nextToken
   }

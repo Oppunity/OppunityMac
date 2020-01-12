@@ -3,31 +3,46 @@
 
 export const createUserInfo = `mutation CreateUserInfo($input: CreateUserInfoInput!) {
   createUserInfo(input: $input) {
-    id
     clientId
     firstname
     lastname
-    age
+    InCollege
+    collegename
+    major
+    RaceText
+    GenderText
+    date
+    country
   }
 }
 `;
 export const updateUserInfo = `mutation UpdateUserInfo($input: UpdateUserInfoInput!) {
   updateUserInfo(input: $input) {
-    id
     clientId
     firstname
     lastname
-    age
+    InCollege
+    collegename
+    major
+    RaceText
+    GenderText
+    date
+    country
   }
 }
 `;
 export const deleteUserInfo = `mutation DeleteUserInfo($input: DeleteUserInfoInput!) {
   deleteUserInfo(input: $input) {
-    id
     clientId
     firstname
     lastname
-    age
+    InCollege
+    collegename
+    major
+    RaceText
+    GenderText
+    date
+    country
   }
 }
 `;
