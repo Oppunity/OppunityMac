@@ -29,7 +29,7 @@ class IndividualSignUpPage extends React.Component {
   // add additional state to hold form state as well as UserInput data returned from the API
 
   state = {
-    firstname: '', lastname: '', InCollege: '', collegename: 'none', major: 'none', RaceText: 'Black', GenderText: 'Male',  date: null,  country: '', currentUser: []
+    firstname: '', lastname: '', InCollege: '', collegename: '', major: '', RaceText: 'Black', GenderText: 'Male',  date: null,  country: '', currentUser: []
   }
   // execute the query in componentDidMount
 
@@ -108,7 +108,9 @@ class IndividualSignUpPage extends React.Component {
       console.log('item created!')
     } catch (err) {
       console.log('error creating UserInput...', err)
+     
     }
+    this.props.navigation.navigate('MainFeed')
   }
   // change form state then user types into input
   onChange = (key, value) => {
@@ -121,7 +123,6 @@ class IndividualSignUpPage extends React.Component {
 
     return (
       <ScrollView style={{backgroundColor: 'black'}}> 
-       <SafeAreaView style={{flex: 1 }}>
 
 
        <View style={{flex: 1, backgroundColor: 'black', width: '100%', height: '100%'}}>
@@ -453,12 +454,11 @@ class IndividualSignUpPage extends React.Component {
         }
       */}
         </View>
-      </SafeAreaView>
       </ScrollView> 
     )
   }
 }
-
+/*
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -469,6 +469,6 @@ const styles = StyleSheet.create({
   lastname: { fontWeight: '600', marginTop: 4, color: 'white' },
   age: { marginTop: 4, color: 'white' }
 })
-
+*/
 export default IndividualSignUpPage;
 

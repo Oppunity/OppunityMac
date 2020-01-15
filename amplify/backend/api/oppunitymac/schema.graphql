@@ -10,3 +10,13 @@ type UserInfo @model {
   date: String
   country: String
 }
+
+type OrgInfo @model {
+  clientId: String
+  orgName: String
+  pfirst: String
+  plast: String
+  CollegeA: String
+  OrgSchool: String
+  OrgText: String
+}

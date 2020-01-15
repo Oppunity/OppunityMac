@@ -46,3 +46,39 @@ export const deleteUserInfo = `mutation DeleteUserInfo($input: DeleteUserInfoInp
   }
 }
 `;
+export const createOrgInfo = `mutation CreateOrgInfo($input: CreateOrgInfoInput!) {
+  createOrgInfo(input: $input) {
+    clientId
+    orgName
+    pfirst
+    plast
+    CollegeA
+    OrgSchool
+    OrgText
+  }
+}
+`;
+export const updateOrgInfo = `mutation UpdateOrgInfo($input: UpdateOrgInfoInput!) {
+  updateOrgInfo(input: $input) {
+    clientId
+    orgName
+    pfirst
+    plast
+    CollegeA
+    OrgSchool
+    OrgText
+  }
+}
+`;
+export const deleteOrgInfo = `mutation DeleteOrgInfo($input: DeleteOrgInfoInput!) {
+  deleteOrgInfo(input: $input) {
+    clientId
+    orgName
+    pfirst
+    plast
+    CollegeA
+    OrgSchool
+    OrgText
+  }
+}
+`;

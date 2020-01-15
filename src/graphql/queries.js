@@ -38,3 +38,34 @@ export const listUserInfos = `query ListUserInfos(
   }
 }
 `;
+export const getOrgInfo = `query GetOrgInfo($id: ID!) {
+  getOrgInfo(id: $id) {
+    clientId
+    orgName
+    pfirst
+    plast
+    CollegeA
+    OrgSchool
+    OrgText
+  }
+}
+`;
+export const listOrgInfos = `query ListOrgInfos(
+  $filter: ModelOrgInfoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listOrgInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      clientId
+      orgName
+      pfirst
+      plast
+      CollegeA
+      OrgSchool
+      OrgText
+    }
+    nextToken
+  }
+}
+`;

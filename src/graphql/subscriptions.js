@@ -46,3 +46,39 @@ export const onDeleteUserInfo = `subscription OnDeleteUserInfo {
   }
 }
 `;
+export const onCreateOrgInfo = `subscription OnCreateOrgInfo {
+  onCreateOrgInfo {
+    clientId
+    orgName
+    pfirst
+    plast
+    CollegeA
+    OrgSchool
+    OrgText
+  }
+}
+`;
+export const onUpdateOrgInfo = `subscription OnUpdateOrgInfo {
+  onUpdateOrgInfo {
+    clientId
+    orgName
+    pfirst
+    plast
+    CollegeA
+    OrgSchool
+    OrgText
+  }
+}
+`;
+export const onDeleteOrgInfo = `subscription OnDeleteOrgInfo {
+  onDeleteOrgInfo {
+    clientId
+    orgName
+    pfirst
+    plast
+    CollegeA
+    OrgSchool
+    OrgText
+  }
+}
+`;
